@@ -65,10 +65,86 @@ ReactDOM.render(
 
 
 
-const element = <h1 className="heaedr">This is JSX</h1>
-console.log(element)
+
 
 // BUILD A REACT INFO | JSX
 // JSX 
+const element = <h1 className="header">This is JSX</h1>
+console.log(element)
 ReactDOM.render(element,document.getElementById("root"))
+
+
+// above can also be written as 
+ReactDOM.render(
+        <h1 className="header">This is JSX</h1>,
+        document.getElementById("root")
+        )
+
+
+// In JSX we need to make sure tha we are returning single parent element
+// In other words we cannot attempt to render 2 sibling elements side by side
+// like this 
+// ReactDOM.render(
+//     <h1 className="header">This is JSX</h1><p>This cannot be done!</p>,
+//     document.getElementById("root")
+//     )
+// PROBLLEM IN CONSOLE: // 	"message": "JSX expressions must have one parent element.",
+
+
+// BUT THE ABOVE CAN BE DONE IF WE WRAP BOTH h1 and p IN A DIV(DIV IS PARENT ELEMENT)
+ReactDOM.render(
+    <div>
+    <h1 className="header">This is JSX</h1>
+    <p>This can be done!</p>
+    </div>,
+    document.getElementById("root")
+    )
+
+// ANOTHER WAY TO DO THIS IS:
+const page = (  
+        <div>
+            <h1 className="header">This is JSX</h1>
+            <p>This can be done!</p>
+        </div>
+)
+
+ReactDOM.render(
+    page,
+    document.getElementById("root")
+)
+
+
+//CHALLENGE to create a navbar using JSX
+
+ReactDOM.render(
+    <nav>
+        <h1>QuantaVista</h1>
+        <ul>
+            <li>Pricing</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </nav>,
+    document.getElementById("root")
+)
+
+
+// 2nd Way 
+const navbar = (
+    <nav>
+    <h1>QuantaVista</h1>
+    <ul>
+        <li>Pricing</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+)
+
+
+ReactDOM.render(
+    navbar,
+    document.getElementById("root")
+)
+
 
